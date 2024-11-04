@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckxcwmro4euxv"]
+
+[ext_resource type="Script" path="res://characters/enemies/spike_enemy.gd" id="1_mupsj"]
+[ext_resource type="Texture2D" uid="uid://gys6vtmly05t" path="res://assets/tiles/tilemap-characters_packed.png" id="1_rh1sx"]
+[ext_resource type="PackedScene" uid="uid://c5wu2qkfc6ri3" path="res://damageHitbox.tscn" id="2_heau5"]
+
+[sub_resource type="Animation" id="Animation_m7jwa"]
+resource_name = "LoopAnimation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ht4xi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_8byu4"]
+resource_name = "UpAndDown"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_grlb5"]
+_data = {
+"LoopAnimation": SubResource("Animation_m7jwa"),
+"RESET": SubResource("Animation_ht4xi"),
+"UpAndDown": SubResource("Animation_8byu4")
+}
+
+[node name="SpikeEnemy" type="Path2D"]
+script = ExtResource("1_mupsj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-1, 1)
+progress = 288.671
+rotates = false
+
+[node name="Enemy" type="Node2D" parent="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Enemy"]
+texture = ExtResource("1_rh1sx")
+region_enabled = true
+region_rect = Rect2(192, 0, 24, 24)
+
+[node name="DamageHitbox" parent="PathFollow2D/Enemy" instance=ExtResource("2_heau5")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PathFollow2D/Enemy/DamageHitbox"]
+polygon = PackedVector2Array(-1, -10, 1, -10, 10, -1, 10, 1, 1, 10, -1, 10, -10, 1, -10, -1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_grlb5")
+}

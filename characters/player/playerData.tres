@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3 uid="uid://cr2kdyowg4jnl"]
+
+[ext_resource type="SpriteFrames" uid="uid://cqhnfe3fjqx61" path="res://characters/player/skin/playerGreenSkin.tres" id="1_jrffd"]
+[ext_resource type="Script" path="res://characters/player/playerData.gd" id="1_w8aqk"]
+
+[resource]
+script = ExtResource("1_w8aqk")
+FALL_THRESHOLD = 250.0
+MAX_JUMP_VELOCITY = -350.0
+MIN_JUMP_VELOCITY = -100.0
+SPEED = 100.0
+ACCELERATION = 1200.0
+DECELERATION = 800.0
+CLIMB_SPEED = 50.0
+DOUBLE_JUMP_COUNT = 1
+SKIN = ExtResource("1_jrffd")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d06y0u3jwrl5f"]
+
+[ext_resource type="Script" path="res://characters/player/player.gd" id="1_kr6sv"]
+[ext_resource type="SpriteFrames" uid="uid://bidjr5woecoqq" path="res://characters/player/skin/playerPinkSkin.tres" id="2_rydqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mo1u"]
+size = Vector2(14, 18)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_kr6sv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_rydqq")
+animation = &"idle"
+speed_scale = 1.5
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_4mo1u")
+
+[node name="Camera2D" type="Camera2D" parent="."]

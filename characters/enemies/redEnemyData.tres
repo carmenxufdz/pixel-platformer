@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://cy7mwbxwrwhcg"]
+
+[ext_resource type="Script" path="res://characters/enemies/redEnemyData.gd" id="1_jp6lp"]
+
+[resource]
+script = ExtResource("1_jp6lp")
+SPEED = 25.0
