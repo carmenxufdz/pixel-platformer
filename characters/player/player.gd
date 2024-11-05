@@ -3,13 +3,11 @@ class_name Player
 extends CharacterBody2D
 
 @export var playerData: Resource
-@export var tile_size: Vector2 = Vector2(18, 18)
-
 enum { MOVE, CLIMB }
 
 @onready var animatedSprite: = $AnimatedSprite2D
-@onready var camera: = $Camera2D
 @onready var ladderCheck: = $LadderCheck  # Suponiendo que tienes un Area2D o RayCast2D llamado ladderCheck
+@onready var remoteTransform: = $RemoteTransform2D
 
 var initial_player_y: float = 0.0
 var state
@@ -108,9 +106,13 @@ func update_animation() -> void:
 func player_die() -> void:
 	# Reiniciar la escena actual
 	SoundPlayer.play_sound(SoundPlayer.DIE)
-	get_tree().reload_current_scene()
+	queue_free()
+	Events.emit_signal("player_died")
 
 func align_to_pixels() -> void:
 	# Alinear posición a pixeles para evitar desenfoque en juegos de pixel art
 	position.x = round(position.x)
 	position.y = round(position.y)
+
+func connect_camera(camera: Camera2D) -> void:
+	remoteTransform.remote_path = camera.get_path()

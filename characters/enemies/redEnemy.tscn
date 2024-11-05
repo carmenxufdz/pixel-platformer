@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://characters/enemies/redEnemy.gd" id="1_d4w3i"]
 [ext_resource type="Texture2D" uid="uid://gys6vtmly05t" path="res://assets/tiles/tilemap-characters_packed.png" id="1_vyhkr"]
 [ext_resource type="Resource" uid="uid://cy7mwbxwrwhcg" path="res://characters/enemies/redEnemyData.tres" id="2_3l541"]
-[ext_resource type="PackedScene" uid="uid://c5wu2qkfc6ri3" path="res://damageHitbox.tscn" id="3_m4jar"]
+[ext_resource type="PackedScene" uid="uid://c5wu2qkfc6ri3" path="res://world/damageHitbox.tscn" id="3_m4jar"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5wm5"]
 atlas = ExtResource("1_vyhkr")

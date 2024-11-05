@@ -15,9 +15,14 @@ run/main_scene="res://levels/level1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 SoundPlayer="*res://sound/soundPlayer.tscn"
+Events="*res://world/events.gd"
 
 [display]
 

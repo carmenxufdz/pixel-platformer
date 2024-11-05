@@ -7,18 +7,17 @@ enum ANIMATION_TYPE{
 
 @export var animationType: ANIMATION_TYPE
 @export var speed: float = 1
-
 @onready var animationPlayer: = $AnimationPlayer
 
-	
+
 func _ready():
 	set_animation_type()
+	update_speed()
 
 func set_animation_type() -> void:
 	match animationType:
 		ANIMATION_TYPE.LOOP: animationPlayer.play("LoopAnimation")
 		ANIMATION_TYPE.UP_AND_DOWN: animationPlayer.play("UpAndDown")
 
-func set_speed(value) -> void:
-	speed = value
+func update_speed() -> void:
 	animationPlayer.speed_scale = speed

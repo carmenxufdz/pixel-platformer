@@ -23,8 +23,6 @@ flip_h = true
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_4mo1u")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="LadderCheck" type="RayCast2D" parent="."]
 position = Vector2(0, -11)
 scale = Vector2(3.215, 1)
@@ -32,3 +30,5 @@ target_position = Vector2(0, 29)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
