@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/enemies/spike_enemy.gd" id="1_mupsj"]
 [ext_resource type="Texture2D" uid="uid://gys6vtmly05t" path="res://assets/tiles/tilemap-characters_packed.png" id="1_rh1sx"]
-[ext_resource type="PackedScene" uid="uid://c5wu2qkfc6ri3" path="res://world/damageHitbox.tscn" id="2_heau5"]
+[ext_resource type="PackedScene" uid="uid://c5wu2qkfc6ri3" path="res://world/obstacles/damageHitbox.tscn" id="2_heau5"]
 
 [sub_resource type="Animation" id="Animation_m7jwa"]
 resource_name = "LoopAnimation"

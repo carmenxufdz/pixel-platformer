@@ -43,7 +43,6 @@ func move_state(delta) -> void:
 func climb_state(delta) -> void:
 	if not is_on_ladder():
 		state = MOVE
-	handle_jump()
 	climb(delta)
 	move_horizontal(delta)
 
@@ -52,15 +51,15 @@ func apply_gravity(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 func handle_jump() -> void:
-	if is_on_floor() or is_on_ladder():
+	if is_on_floor():
 		double_jump = playerData.DOUBLE_JUMP_COUNT
-		if Input.is_action_just_pressed("space"):
+		if Input.is_action_just_pressed("up"):
 			SoundPlayer.play_sound(SoundPlayer.JUMP)
 			velocity.y = playerData.MAX_JUMP_VELOCITY
 	else:
-		if Input.is_action_just_released("space") and velocity.y < playerData.MIN_JUMP_VELOCITY:
+		if Input.is_action_just_released("up") and velocity.y < playerData.MIN_JUMP_VELOCITY:
 			velocity.y = playerData.MIN_JUMP_VELOCITY
-		if Input.is_action_just_pressed("space") and double_jump > 0:
+		if Input.is_action_just_pressed("up") and double_jump > 0:
 			SoundPlayer.play_sound(SoundPlayer.JUMP)
 			velocity.y = playerData.MAX_JUMP_VELOCITY
 			double_jump = -1
