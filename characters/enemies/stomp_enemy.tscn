@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://jv70h3abrfbi"]
+
+[ext_resource type="Texture2D" uid="uid://gys6vtmly05t" path="res://assets/tiles/tilemap-characters_packed.png" id="1_63myr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a65dx"]
+atlas = ExtResource("1_63myr")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70xwg"]
+atlas = ExtResource("1_63myr")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m824t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a65dx")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70xwg")
+}],
+"loop": true,
+"name": &"raising",
+"speed": 5.0
+}]
+
+[node name="StompEnemy" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m824t")
+animation = &"raising"
