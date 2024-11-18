@@ -1,5 +1,3 @@
-	
-
 	Pixel Platformer (1.2)
 
 	Created/distributed by Kenney (www.kenney.nl)
