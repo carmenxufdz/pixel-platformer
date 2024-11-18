@@ -8,6 +8,7 @@
 size = Vector2(14, 22)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 10
 position = Vector2(0, -13)
 collision_layer = 2
 collision_mask = 5
@@ -25,7 +26,7 @@ flip_h = true
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_4mo1u")
 
-[node name="LadderCheck" type="RayCast2D" parent="."]
+[node name="Check" type="RayCast2D" parent="."]
 position = Vector2(0, -10)
 scale = Vector2(3.215, 1)
 target_position = Vector2(0, 29)

@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://yfy2b485ybag" path="res://assets/tiles/tilemap_packed.png" id="1_2twu6"]
 [ext_resource type="Script" path="res://world/objects/ladder.gd" id="1_kdntj"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgsye"]
 
 [node name="Ladder" type="Area2D"]

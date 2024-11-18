@@ -6,12 +6,14 @@ extends CharacterBody2D
 enum { MOVE, CLIMB }
 
 @onready var animatedSprite: = $AnimatedSprite2D
-@onready var ladderCheck: = $LadderCheck  # Suponiendo que tienes un Area2D o RayCast2D llamado ladderCheck
+@onready var check: = $Check  # Suponiendo que tienes un Area2D o RayCast2D llamado ladderCheck
 @onready var remoteTransform: = $RemoteTransform2D
 
 var initial_player_y: float = 0.0
 var state
 var double_jump
+
+var on_door = false
 
 func _ready() -> void:
 	initial_player_y = global_position.y  # Guardamos la posición Y inicial del jugador
@@ -51,6 +53,8 @@ func apply_gravity(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 func handle_jump() -> void:
+	if on_door:
+		return
 	if is_on_floor():
 		double_jump = playerData.DOUBLE_JUMP_COUNT
 		if Input.is_action_just_pressed("up"):
@@ -85,8 +89,8 @@ func climb(delta) -> void:
 		velocity.y = move_toward(velocity.y, 0, playerData.DECELERATION * delta)
 
 func is_on_ladder() -> bool:
-	var collider = ladderCheck.get_collider()
-	if not ladderCheck.is_colliding() or not collider is Ladder:
+	var collider = check.get_collider()
+	if not check.is_colliding() or not collider is Ladder:
 		return false
 	return true
 		

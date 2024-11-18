@@ -1,0 +1,17 @@
+res://levels/level1.tscn
+res://characters/player/player.gd
+res://characters/player/skin/playerGreenSkin.tres
+res://characters/player/skin/playerPinkSkin.tres
+res://characters/player/player.tscn
+res://characters/player/playerData.tres
+res://characters/enemies/spikeEnemy.tscn
+res://levels/level.tscn
+res://levels/world.tscn
+res://world/world.tscn
+res://levels/level2.tscn
+res://world/objects/door.tscn
+res://world/objects/door.gd
+res://characters/enemies/spikeEnemy.gd
+res://levels/transitions.tscn
+res://levels/transitions.gd
+res://world/objects/ladder.tscn

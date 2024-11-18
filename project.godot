@@ -23,6 +23,7 @@ buses/default_bus_layout=""
 
 SoundPlayer="*res://sound/soundPlayer.tscn"
 Events="*res://world/events.gd"
+Transitions="*res://levels/transitions.tscn"
 
 [display]
 
